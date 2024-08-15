@@ -1,0 +1,37 @@
+
+
+#include "alis.h"
+
+const Tarih& alis::get_tarih() const
+{
+    return _tarih;
+}
+
+const Tamsayi& alis::get_fatura_no() const
+{
+    return _faturaNo;
+}
+
+const Tamsayi& alis::get_tedarikci_tanimlayici() const
+{
+    return _tedarikciTanimlayici;
+}
+
+void alis::set_tarih(const Tarih& tarih)
+{
+    _tarih = tarih;
+}
+
+void alis::set_fatura_no(const Tamsayi& fatura_no)
+{
+    _faturaNo = fatura_no;
+}
+
+void alis::set_tedarikci_tanimlayici(const Tamsayi& tedarikci_tanimlayici)
+{
+    _tedarikciTanimlayici = tedarikci_tanimlayici;
+}
+
+alis::alis(): ortak_veri_sinifi{}, _tarih{}, _faturaNo{Gecersiz}, _tedarikciTanimlayici{Gecersiz}
+{
+}
