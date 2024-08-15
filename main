@@ -1,0 +1,207 @@
+#include <iostream>
+
+#include <cmath>
+
+class Sekil2B {
+public:
+    [[nodiscard]] virtual float alan() const = 0;
+
+    [[nodiscard]] virtual float cevre() const = 0;
+};
+
+class Yamuk : public Sekil2B {
+private:
+    float _k1;
+    float _k2;
+    float _k3;
+    float _k4;
+    float _h;
+
+public:
+    [[nodiscard]] float getK1() const {
+        return _k1;
+    }
+
+    void setK1(float k1) {
+        _k1 = k1;
+    }
+
+    [[nodiscard]] float getK2() const {
+        return _k2;
+    }
+
+    void setK2(float k2) {
+        _k2 = k2;
+    }
+
+    [[nodiscard]] float getK3() const {
+        return _k3;
+    }
+
+    void setK3(float k3) {
+        _k3 = k3;
+    }
+
+    [[nodiscard]] float getK4() const {
+        return _k4;
+    }
+
+    void setK4(float k4) {
+        _k4 = k4;
+    }
+
+    [[nodiscard]] float getH() const {
+        return _h;
+    }
+
+    void setH(float h) {
+        _h = h;
+    }
+
+    Yamuk(float k1, float k2, float k3, float k4, float h) : _k1(k1), _k2(k2), _k3(k3), _k4(k4), _h(h) {}
+
+    [[nodiscard]] float alan() const {
+        return 0.5f * (_k1 + _k2) * _h;
+    };
+
+    [[nodiscard]]  float cevre() const {
+        return _k1 + _k2 + _k3 + _k4;
+    };
+
+};
+
+class Dikdortgen : public Sekil2B {
+protected:
+    float _kisaKenar;
+    float _uzunKenar;
+
+public:
+    [[nodiscard]] float getKisaKenar() const {
+        return _kisaKenar;
+    }
+
+    Dikdortgen(float kisaKenar, float uzunKenar) : _kisaKenar(kisaKenar), _uzunKenar(uzunKenar) {
+        std::cout << "Dikdortgen Ilklendiricisi" << std::endl;
+    }
+
+    virtual void setKisaKenar(float kisaKenar) {
+        _kisaKenar = kisaKenar;
+    }
+
+    [[nodiscard]] float getUzunKenar() const {
+        return _uzunKenar;
+    }
+
+    virtual void setUzunKenar(float uzunKenar) {
+        _uzunKenar = uzunKenar;
+    }
+
+    [[nodiscard]] float alan() const {
+        return _kisaKenar * _uzunKenar;
+    }
+
+    [[nodiscard]] float cevre() const {
+        return 2.0f * (_kisaKenar + _uzunKenar);
+    }
+};
+
+class Kare : public Dikdortgen {
+public:
+    void setKisaKenar(float kisaKenar) {
+        Dikdortgen::setKisaKenar(kisaKenar);
+        _uzunKenar = _kisaKenar;
+    }
+
+    void setUzunKenar(float uzunKenar) {
+        Dikdortgen::setUzunKenar(uzunKenar);
+        _kisaKenar = _uzunKenar;
+    }
+
+    Kare(float kenar) : Dikdortgen(kenar, kenar) {
+        std::cout << "Kare Ilklendiricisi" << std::endl;
+    }
+};
+
+class Ucgen : public Sekil2B {
+private:
+    float _k1;
+    float _k2;
+    float _k3;
+
+public:
+    float getK1() const {
+        return _k1;
+    }
+
+    Ucgen(float k1, float k2, float k3) : _k1(k1), _k2(k2), _k3(k3) {}
+
+    void setK1(float k1) {
+        _k1 = k1;
+    }
+
+    float getK2() const {
+        return _k2;
+    }
+
+    void setK2(float k2) {
+        _k2 = k2;
+    }
+
+    float getK3() const {
+        return _k3;
+    }
+
+    void setK3(float k3) {
+        _k3 = k3;
+    }
+
+    [[nodiscard]] float alan() const {
+        auto u = cevre() * 0.5f;
+        return sqrtf(u * (u - _k1) * (u - _k2) * (u - _k3));
+    }
+
+    [[nodiscard]] float cevre() const {
+        return _k1 + _k2 + _k3;
+    }
+};
+
+class Daire : public Sekil2B {
+private:
+    float _r;
+
+public:
+    [[nodiscard]] float getR() const {
+        return _r;
+    }
+
+    explicit Daire(float r) : _r(r) {}
+
+    void setR(float r) {
+        _r = r;
+    }
+
+    [[nodiscard]] float alan() const {
+        return 3.14159f * _r * _r;
+    }
+
+    [[nodiscard]] float cevre() const {
+        return 2.0f * 3.14159f * _r;
+    }
+
+};
+
+int main() {
+    Sekil2B *sekiller[1000];
+    Yamuk n1(3, 4, 5, 6, 7);
+    Kare k(7);
+
+    sekiller[0] = new Daire(3.18);
+    sekiller[1] = new Ucgen(3, 4, 5);
+    sekiller[2] = new Dikdortgen(3, 4);
+    sekiller[3] = new Yamuk(3, 4, 5, 6, 7);
+    sekiller[4] = new Kare(7);
+
+    for (auto i = 0; i < 5; i++) {
+        std::cout << sekiller[i]->cevre() << " " << sekiller[i]->alan() << std::endl;
+    }
+}
