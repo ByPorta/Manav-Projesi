@@ -1,0 +1,37 @@
+
+
+#include "tedarikci.h"
+
+const Metin& tedarikci::get_adi() const
+{
+    return _adi;
+}
+
+const Metin& tedarikci::get_adres() const
+{
+    return _adres;
+}
+
+const Metin& tedarikci::get_telefon() const
+{
+    return _telefon;
+}
+
+void tedarikci::set_adi(const Metin& adi)
+{
+    _adi = adi;
+}
+
+void tedarikci::set_adres(const Metin& adres)
+{
+    _adres = adres;
+}
+
+void tedarikci::set_telefon(const Metin& telefon)
+{
+    _telefon = telefon;
+}
+
+tedarikci::tedarikci(): ortak_veri_sinifi{}, _adi{}, _adres{}, _telefon{}
+{
+}
