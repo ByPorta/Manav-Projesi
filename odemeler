@@ -1,0 +1,37 @@
+
+
+#include "odemeler.h"
+
+const Tarih& odemeler::get_tarih() const
+{
+    return _tarih;
+}
+
+const ParaBirimi& odemeler::get_miktar() const
+{
+    return _miktar;
+}
+
+const Tamsayi& odemeler::get_musteri_tanimlayici() const
+{
+    return _musteriTanimlayici;
+}
+
+void odemeler::set_tarih(const Tarih& tarih)
+{
+    _tarih = tarih;
+}
+
+void odemeler::set_miktar(const ParaBirimi& miktar)
+{
+    _miktar = miktar;
+}
+
+void odemeler::set_musteri_tanimlayici(const Tamsayi& musteri_tanimlayici)
+{
+    _musteriTanimlayici = musteri_tanimlayici;
+}
+
+odemeler::odemeler(): ortak_veri_sinifi{}, _tarih{}, _miktar{}, _musteriTanimlayici{Gecersiz}
+{
+}
