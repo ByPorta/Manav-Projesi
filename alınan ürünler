@@ -1,0 +1,47 @@
+
+#include "alinanurunler.h"
+
+const ParaBirimi& alinanurunler::get_alis_fiyati() const
+{
+    return _alisFiyati;
+}
+
+const Miktar& alinanurunler::get_miktar() const
+{
+    return _miktar;
+}
+
+const Tamsayi& alinanurunler::get_urun_tanimlayici() const
+{
+    return _urunTanimlayici;
+}
+
+const Tamsayi& alinanurunler::get_alis_tanimlayici() const
+{
+    return _alisTanimlayici;
+}
+
+void alinanurunler::set_alis_fiyati(const ParaBirimi& alis_fiyati)
+{
+    _alisFiyati = alis_fiyati;
+}
+
+void alinanurunler::set_miktar(const Miktar& miktar)
+{
+    _miktar = miktar;
+}
+
+void alinanurunler::set_urun_tanimlayici(const Tamsayi& urun_tanimlayici)
+{
+    _urunTanimlayici = urun_tanimlayici;
+}
+
+void alinanurunler::set_alis_tanimlayici(const Tamsayi& alis_tanimlayici)
+{
+    _alisTanimlayici = alis_tanimlayici;
+}
+
+alinanurunler::alinanurunler(): ortak_veri_sinifi{}, _alisFiyati{}, _miktar{}, _urunTanimlayici{Gecersiz},
+                                _alisTanimlayici{Gecersiz}
+{
+}
