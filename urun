@@ -1,0 +1,26 @@
+
+#include "urun.h"
+
+const Metin& urun::get_urun_adi() const
+{
+    return _urunAdi;
+}
+
+const ParaBirimi& urun::get_birim_fiyat() const
+{
+    return _birimFiyat;
+}
+
+void urun::set_urun_adi(const Metin& urun_adi)
+{
+    _urunAdi = urun_adi;
+}
+
+void urun::set_birim_fiyat(const ParaBirimi& birim_fiyat)
+{
+    _birimFiyat = birim_fiyat;
+}
+
+urun::urun(): ortak_veri_sinifi{}, _urunAdi{}, _birimFiyat{0.0f}
+{
+}
