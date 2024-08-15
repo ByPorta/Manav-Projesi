@@ -1,0 +1,47 @@
+
+
+#include "musteri.h"
+
+const Metin& musteri::get_adi() const
+{
+    return _adi;
+}
+
+const Metin& musteri::get_soyadi() const
+{
+    return _soyadi;
+}
+
+const Metin& musteri::get_adres() const
+{
+    return _adres;
+}
+
+const Metin& musteri::get_telefon() const
+{
+    return _telefon;
+}
+
+void musteri::set_adi(const Metin& adi)
+{
+    _adi = adi;
+}
+
+void musteri::set_soyadi(const Metin& soyadi)
+{
+    _soyadi = soyadi;
+}
+
+void musteri::set_adres(const Metin& adres)
+{
+    _adres = adres;
+}
+
+void musteri::set_telefon(const Metin& telefon)
+{
+    _telefon = telefon;
+}
+
+musteri::musteri(): ortak_veri_sinifi{}, _adi{}, _soyadi{}, _adres{}, _telefon{}
+{
+}
