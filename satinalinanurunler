@@ -1,0 +1,47 @@
+
+#include "satilanurunler.h"
+
+const ParaBirimi& satilanurunler::get_satis_fiyati() const
+{
+    return _satisFiyati;
+}
+
+const Miktar& satilanurunler::get_miktar() const
+{
+    return _miktar;
+}
+
+const Tamsayi& satilanurunler::get_urun_tanimlayici() const
+{
+    return _urunTanimlayici;
+}
+
+const Tamsayi& satilanurunler::get_satis_tanimlayici() const
+{
+    return _satisTanimlayici;
+}
+
+void satilanurunler::set_satis_fiyati(const ParaBirimi& satis_fiyati)
+{
+    _satisFiyati = satis_fiyati;
+}
+
+void satilanurunler::set_miktar(const Miktar& miktar)
+{
+    _miktar = miktar;
+}
+
+void satilanurunler::set_urun_tanimlayici(const Tamsayi& urun_tanimlayici)
+{
+    _urunTanimlayici = urun_tanimlayici;
+}
+
+void satilanurunler::set_satis_tanimlayici(const Tamsayi& satis_tanimlayici)
+{
+    _satisTanimlayici = satis_tanimlayici;
+}
+
+satilanurunler::satilanurunler(): ortak_veri_sinifi{}, _satisFiyati{}, _miktar{}, _urunTanimlayici{Gecersiz},
+                                  _satisTanimlayici{Gecersiz}
+{
+}
