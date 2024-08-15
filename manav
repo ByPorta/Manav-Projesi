@@ -1,0 +1,36 @@
+
+#include "manav.h"
+
+const Metin& manav::get_adi() const
+{
+    return _adi;
+}
+
+const Metin& manav::get_adresi() const
+{
+    return _adresi;
+}
+
+const Metin& manav::get_telefon() const
+{
+    return _telefon;
+}
+
+void manav::set_adi(const Metin& adi)
+{
+    _adi = adi;
+}
+
+void manav::set_adresi(const Metin& adresi)
+{
+    _adresi = adresi;
+}
+
+void manav::set_telefon(const Metin& telefon)
+{
+    _telefon = telefon;
+}
+
+manav::manav(): ortak_veri_sinifi{}, _adi{}, _adresi{}, _telefon{}
+{
+}
