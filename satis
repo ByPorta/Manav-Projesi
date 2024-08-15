@@ -1,0 +1,37 @@
+
+
+#include "satis.h"
+
+const Tarih& satis::get_tarih() const
+{
+    return _tarih;
+}
+
+const Tamsayi& satis::get_fatura_no() const
+{
+    return _faturaNo;
+}
+
+const Tamsayi& satis::get_tedarikci_tanimlayici() const
+{
+    return _tedarikciTanimlayici;
+}
+
+void satis::set_tarih(const Tarih& tarih)
+{
+    _tarih = tarih;
+}
+
+void satis::set_fatura_no(const Tamsayi& fatura_no)
+{
+    _faturaNo = fatura_no;
+}
+
+void satis::set_tedarikci_tanimlayici(const Tamsayi& tedarikci_tanimlayici)
+{
+    _tedarikciTanimlayici = tedarikci_tanimlayici;
+}
+
+satis::satis(): ortak_veri_sinifi{}, _tarih{}, _faturaNo{Gecersiz}, _tedarikciTanimlayici{Gecersiz}
+{
+}
